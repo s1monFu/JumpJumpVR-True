@@ -1578,29 +1578,14 @@ GameObject:
   - component: {fileID: 542185643}
   - component: {fileID: 542185642}
   - component: {fileID: 542185641}
-  - component: {fileID: 542185640}
+  - component: {fileID: 542185645}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Block2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &542185640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 542185639}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ddf034900a62074087400f5acd2d635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  distance: 1
-  moveKey: 32
 --- !u!65 &542185641
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1634,7 +1619,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3e4ace324a9f8af4fa83b1063df962c6, type: 2}
+  - {fileID: 2100000, guid: 9b23c4c761f257b4389011cefe0ad730, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1679,6 +1664,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &542185645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542185639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ddf034900a62074087400f5acd2d635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  moveKey: 32
 --- !u!1 &569430149
 GameObject:
   m_ObjectHideFlags: 0
@@ -3534,7 +3533,7 @@ GameObject:
   - component: {fileID: 1171505743}
   - component: {fileID: 1171505742}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3695,7 +3694,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229301606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 2.5}
+  m_LocalPosition: {x: 0, y: 4, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3717,7 +3716,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &1229301610
 MonoBehaviour:
@@ -3731,9 +3730,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58eff0d96dc047d2aa91ce125fd0119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMultiplier: 10
-  maxHoldTime: 2
-  forwardForceMultiplier: 5
+  forceMultiplier: 30
+  maxHoldTime: 1
+  forwardForceMultiplier: 0
 --- !u!65 &1229301611
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4062,7 +4061,7 @@ GameObject:
   - component: {fileID: 1283702541}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Block3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4100,7 +4099,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3e4ace324a9f8af4fa83b1063df962c6, type: 2}
+  - {fileID: 2100000, guid: 2094149538a86d341b85ad34e45d9f78, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4152,13 +4151,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1283702536}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ddf034900a62074087400f5acd2d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  distance: 1
   moveKey: 32
 --- !u!1001 &1286115575
 PrefabInstance:
@@ -5216,29 +5214,14 @@ GameObject:
   - component: {fileID: 1571850879}
   - component: {fileID: 1571850878}
   - component: {fileID: 1571850877}
-  - component: {fileID: 1571850876}
+  - component: {fileID: 1571850881}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Block1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1571850876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1571850875}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ddf034900a62074087400f5acd2d635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  distance: 1
-  moveKey: 32
 --- !u!65 &1571850877
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5317,6 +5300,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1571850881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571850875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ddf034900a62074087400f5acd2d635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  moveKey: 32
 --- !u!1001 &1577049068
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6963,7 +6960,7 @@ GameObject:
   - component: {fileID: 2035452423}
   - component: {fileID: 2035452422}
   m_Layer: 0
-  m_Name: Ocean (1)
+  m_Name: Ocean(back)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
