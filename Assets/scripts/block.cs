@@ -9,6 +9,7 @@ public class block : MonoBehaviour
     public KeyCode moveKey = KeyCode.Space; // key to trigger movement
 
     private bool isMoving = false; // flag to indicate if object is currently moving
+    private bool keyReleased = true; // flag to indicate if the move key has been released
     private Vector3 targetPosition; // target position to move towards
     private GameObject[] blocks; // array to store all blocks
     private Renderer blockRenderer; // reference to the block's renderer component
@@ -24,8 +25,10 @@ public class block : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(moveKey) && !isMoving)
+        if (Input.GetKeyUp(moveKey) && keyReleased)
         {
+            keyReleased = false;
+
             GameObject blockToMove = GetBlockWithSmallestZ();
 
             Vector3 prevBlockPosition = Vector3.zero;
@@ -43,7 +46,7 @@ public class block : MonoBehaviour
             targetPosition = blockToMove.transform.position + Vector3.back * distanceToMove;
             isMoving = true;
 
-            MoveBlocks();
+            Invoke("MoveBlocks", 0.001f); // Call MoveBlocks after 1 ms delay
         }
 
         if (isMoving)
@@ -66,6 +69,14 @@ public class block : MonoBehaviour
 
                 ReorderBlocks();
             }
+        }
+    }
+
+    void LateUpdate()
+    {
+        if (Input.GetKeyUp(moveKey))
+        {
+            keyReleased = true;
         }
     }
 
