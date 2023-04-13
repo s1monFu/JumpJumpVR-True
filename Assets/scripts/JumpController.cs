@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JumpController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class JumpController : MonoBehaviour
     private float holdTime = 0f;
 
     public float speed = 0.5f;
+
+    public Slider slider;
 
     void Start()
     {
@@ -26,7 +29,10 @@ public class JumpController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Space) && isJumping)
         {
-            holdTime += Time.deltaTime;
+            if (holdTime <= maxHoldTime) {
+                holdTime += Time.deltaTime;
+                slider.value = holdTime / maxHoldTime;
+            }
         }
         if (Input.GetKeyUp(KeyCode.Space) && isJumping)
         {
@@ -35,6 +41,8 @@ public class JumpController : MonoBehaviour
             Vector3 jumpForce = transform.forward * forwardForce + Vector3.up * force;
             rb.AddForce(jumpForce, ForceMode.Impulse);
             isJumping = false;
+            holdTime = 0f;
+            slider.value = 0f;
         }
         
     }
