@@ -10,6 +10,8 @@ public class JumpController : MonoBehaviour
     private bool isJumping = false;
     private float holdTime = 0f;
 
+    public float speed = 0.5f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -34,5 +36,6 @@ public class JumpController : MonoBehaviour
             rb.AddForce(jumpForce, ForceMode.Impulse);
             isJumping = false;
         }
+        
     }
 }
