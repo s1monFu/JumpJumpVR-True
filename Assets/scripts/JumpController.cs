@@ -15,26 +15,43 @@ public class JumpController : MonoBehaviour
 
     public Slider slider;
 
+    private Camera MainCamera;
+    float InitialCameraYPos;
+    float CurrentCameraYPos;
+    float CameraYPosOffset;
+    public float DownThreshold = 1;
+    public float UpThreshold = 0.8f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        MainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        InitialCameraYPos = MainCamera.transform.position.y;
+
+        Debug.Log("Camera Y position: " + InitialCameraYPos);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
+        CurrentCameraYPos = MainCamera.transform.position.y;
+ 
+        CameraYPosOffset = InitialCameraYPos - CurrentCameraYPos;
+        Debug.Log("Camera Y Offset: " + CameraYPosOffset);
+
+
+        if ((Input.GetKeyDown(KeyCode.Space) || CameraYPosOffset > DownThreshold) && !isJumping)
         {
             isJumping = true;
             holdTime = 0f;
         }
-        if (Input.GetKey(KeyCode.Space) && isJumping)
+        if ((Input.GetKey(KeyCode.Space) || CameraYPosOffset > DownThreshold) && isJumping)
         {
             if (holdTime <= maxHoldTime) {
                 holdTime += Time.deltaTime;
                 slider.value = holdTime / maxHoldTime;
             }
         }
-        if (Input.GetKeyUp(KeyCode.Space) && isJumping)
+        if ((Input.GetKeyUp(KeyCode.Space) || CameraYPosOffset < UpThreshold) && isJumping)
         {
             float force = Mathf.Clamp(holdTime * forceMultiplier, 0f, forceMultiplier * maxHoldTime);
             float forwardForce = Mathf.Clamp(holdTime * forwardForceMultiplier, 0f, forwardForceMultiplier * maxHoldTime);
