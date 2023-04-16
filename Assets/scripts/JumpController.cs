@@ -9,7 +9,7 @@ public class JumpController : MonoBehaviour
 
     private Rigidbody rb;
     private bool isJumping = false;
-    private float holdTime = 0f;
+    public float holdTime = 0f;
 
     public float speed = 0.5f;
 
