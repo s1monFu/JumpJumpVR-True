@@ -19,8 +19,8 @@ public class JumpController : MonoBehaviour
     float InitialCameraYPos;
     float CurrentCameraYPos;
     float CameraYPosOffset;
-    public float DownThreshold = 1;
-    public float UpThreshold = 0.8f;
+    public float DownThreshold;
+    public float UpThreshold;
 
     void Start()
     {

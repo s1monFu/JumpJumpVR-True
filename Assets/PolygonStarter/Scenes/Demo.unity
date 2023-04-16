@@ -3887,8 +3887,8 @@ MonoBehaviour:
   forwardForceMultiplier: 3
   speed: 0.5
   slider: {fileID: 0}
-  DownThreshold: 1.3
-  UpThreshold: 0.8
+  DownThreshold: 1.1
+  UpThreshold: 0.95
 --- !u!65 &1229301611
 BoxCollider:
   m_ObjectHideFlags: 0
