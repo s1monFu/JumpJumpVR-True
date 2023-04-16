@@ -22,6 +22,10 @@ public class JumpController : MonoBehaviour
     public float DownThreshold;
     public float UpThreshold;
 
+    public AudioClip toneClip;
+    public float toneVolume = 10f;
+    private AudioSource toneSource;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -29,6 +33,9 @@ public class JumpController : MonoBehaviour
         InitialCameraYPos = MainCamera.transform.position.y;
 
         Debug.Log("Camera Y position: " + InitialCameraYPos);
+
+        toneSource = GetComponent<AudioSource>();
+        toneSource.clip = toneClip;
     }
 
     void Update()
@@ -41,6 +48,9 @@ public class JumpController : MonoBehaviour
 
         if ((Input.GetKeyDown(KeyCode.Space) || CameraYPosOffset > DownThreshold) && !isJumping)
         {
+            // Start playing the tone from the beginning
+            toneSource.Stop();
+            toneSource.PlayOneShot(toneClip);
             isJumping = true;
             holdTime = 0f;
         }
@@ -49,10 +59,14 @@ public class JumpController : MonoBehaviour
             if (holdTime <= maxHoldTime) {
                 holdTime += Time.deltaTime;
                 slider.value = holdTime / maxHoldTime;
+                float volume = holdTime / maxHoldTime * toneVolume;
+                Debug.Log("Volume: " + volume);
+                toneSource.volume = volume;
             }
         }
         if ((Input.GetKeyUp(KeyCode.Space) || CameraYPosOffset < UpThreshold) && isJumping)
         {
+            toneSource.Stop();
             float force = Mathf.Clamp(holdTime * forceMultiplier, 0f, forceMultiplier * maxHoldTime);
             float forwardForce = Mathf.Clamp(holdTime * forwardForceMultiplier, 0f, forwardForceMultiplier * maxHoldTime);
             Vector3 jumpForce = transform.forward * forwardForce + Vector3.up * force;
@@ -61,6 +75,5 @@ public class JumpController : MonoBehaviour
             holdTime = 0f;
             slider.value = 0f;
         }
-        
     }
 }
