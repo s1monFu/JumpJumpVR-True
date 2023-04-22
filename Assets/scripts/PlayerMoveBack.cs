@@ -16,7 +16,7 @@ public class PlayerMoveBack : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.z > -5)
+        if (transform.position.z > -7)
         {
             transform.Translate(0, 0, -speed * Time.deltaTime);
         }
