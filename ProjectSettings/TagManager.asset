@@ -8,6 +8,7 @@ TagManager:
   - Block1
   - Block2
   - Block3
+  - Dead
   layers:
   - Default
   - TransparentFX
