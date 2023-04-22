@@ -5984,7 +5984,7 @@ MonoBehaviour:
   objectToSpawn: {fileID: 7938312835403384354, guid: 6140d254b6d4d49d1a55cbf09d6ce132, type: 3}
   spawnPosition: {fileID: 746052705}
   minDelayTime: 1
-  maxDelayTime: 3
+  maxDelayTime: 2
 --- !u!65 &2118249512
 BoxCollider:
   m_ObjectHideFlags: 0
