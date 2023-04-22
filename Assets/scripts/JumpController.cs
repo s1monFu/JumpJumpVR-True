@@ -19,6 +19,7 @@ public class JumpController : MonoBehaviour
     float InitialCameraYPos;
     float CurrentCameraYPos;
     float CameraYPosOffset;
+    float curr_player_y, prev_player_y;
     public float DownThreshold;
     public float UpThreshold;
 
@@ -36,11 +37,15 @@ public class JumpController : MonoBehaviour
 
         toneSource = GetComponent<AudioSource>();
         toneSource.clip = toneClip;
+
+        curr_player_y = transform.position.y;
+        prev_player_y = curr_player_y;
     }
 
     void Update()
     {
         CurrentCameraYPos = MainCamera.transform.position.y;
+        curr_player_y = transform.position.y;
  
         CameraYPosOffset = InitialCameraYPos - CurrentCameraYPos;
         Debug.Log("Camera Y Offset: " + CameraYPosOffset);
@@ -50,7 +55,8 @@ public class JumpController : MonoBehaviour
         {
             // Start playing the tone from the beginning
             toneSource.Stop();
-            toneSource.PlayOneShot(toneClip);
+            if (prev_player_y == curr_player_y)
+                toneSource.PlayOneShot(toneClip);
             isJumping = true;
             holdTime = 0f;
         }
@@ -75,5 +81,7 @@ public class JumpController : MonoBehaviour
             holdTime = 0f;
             slider.value = 0f;
         }
+
+        prev_player_y = curr_player_y;
     }
 }
