@@ -36,6 +36,8 @@ public class DeathTrigger : MonoBehaviour
     {
         transform.position = resetPosition.position;
         playerCamera.gameObject.SetActive(true);
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         StartCoroutine(RemoveReplacementShader(0.1f));
     }
 
