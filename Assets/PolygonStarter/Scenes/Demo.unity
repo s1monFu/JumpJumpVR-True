@@ -3033,7 +3033,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  gameOverUI: {fileID: 0}
 --- !u!82 &1229301614
 AudioSource:
   m_ObjectHideFlags: 0
