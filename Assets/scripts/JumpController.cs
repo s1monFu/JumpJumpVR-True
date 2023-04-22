@@ -8,7 +8,7 @@ public class JumpController : MonoBehaviour
     public float forwardForceMultiplier = 5f;
 
     private Rigidbody rb;
-    private bool isJumping = false;
+    public bool isJumping = false;
     public float holdTime = 0f;
 
     public float speed = 0.5f;

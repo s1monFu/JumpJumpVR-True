@@ -6,6 +6,7 @@ public class DeathTrigger : MonoBehaviour
 {
     public Transform resetPosition;
     public Camera playerCamera;
+    public JumpController jumpController;
 
     public AudioClip toneClip;
     private AudioSource toneSource;
@@ -38,6 +39,8 @@ public class DeathTrigger : MonoBehaviour
         playerCamera.gameObject.SetActive(true);
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        jumpController.holdTime = 0f;
+        jumpController.isJumping = false;
         StartCoroutine(RemoveReplacementShader(0.1f));
     }
 
