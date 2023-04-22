@@ -7,6 +7,15 @@ public class DeathTrigger : MonoBehaviour
     public Transform resetPosition;
     public Camera playerCamera;
 
+    public AudioClip toneClip;
+    private AudioSource toneSource;
+
+    void Start()
+    {
+        toneSource = GetComponent<AudioSource>();
+        toneSource.clip = toneClip;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Dead"))
@@ -19,29 +28,10 @@ public class DeathTrigger : MonoBehaviour
             playerCamera.SetReplacementShader(Shader.Find("Unlit/Color"), "RenderType");
             playerCamera.SetReplacementShader(blackMaterial.shader, "RenderType");
 
-            
-
-            //Invoke("turnOffCamera", 0.5f);
+            toneSource.PlayOneShot(toneClip);
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    
-    void turnOffCamera()
-    {
-        playerCamera.gameObject.SetActive(false);
-    }
     void respawn()
     {
         transform.position = resetPosition.position;
