@@ -6,13 +6,6 @@ using UnityEngine.SceneManagement;
 public class PlayerMoveBack : MonoBehaviour
 {
     public float speed = 0.5f;
-    //public string scene_name;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -21,9 +14,13 @@ public class PlayerMoveBack : MonoBehaviour
             transform.Translate(0, 0, -speed * Time.deltaTime);
         }
 
-        if( transform.position.z >= 40f ){
-            SceneManager.LoadScene("YOU_WIN");
+        if( transform.position.z >= 42f && transform.position.y >= -3f){
+            Invoke("WIN", 2);
         }
+    }
 
+    void WIN()
+    {
+        SceneManager.LoadScene("YOU_WIN");
     }
 }
