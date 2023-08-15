@@ -2,7 +2,7 @@
 
 JumpJumpVR is an immersive virtual reality (VR) game developed using Unity and C#. In this game, players are challenged to navigate a series of floating and moving platforms while using their body movements to jump and avoid falling between the gaps. The game utilizes VR headset height detection to enable squatting and jumping mechanics, adding an extra layer of realism and interactivity.
 
-![JumpJumpVR Gameplay](screenshot.png)
+![JumpJumpVR Gameplay](Screenshot.png)
 
 ## Features
 
