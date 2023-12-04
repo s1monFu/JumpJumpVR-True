@@ -4,6 +4,9 @@ JumpJumpVR is an immersive virtual reality (VR) game developed using Unity and C
 
 ![JumpJumpVR Gameplay](Screenshot.png)
 
+## Demo
+https://www.youtube.com/watch?v=Xo5e17YzOUI
+
 ## Features
 
 - **Intuitive Controls:** The game leverages VR headset height tracking to detect player movements. Players can squat to charge a jump and stand up to release the jump.
